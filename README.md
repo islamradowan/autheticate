@@ -1,4 +1,4 @@
-# Authentication App
+# Test Authentication using demo api
 
 A simple authentication system with login and profile pages using vanilla JavaScript.
 
