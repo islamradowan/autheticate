@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <div class="profile-container">
+        <h1>User Profile</h1>
+        <div class="profile-info" id="profileInfo"></div>
+        <button onclick="logout()">Logout</button>
+    </div>
+
+    <script>
+        const data = JSON.parse(localStorage.getItem("userData"));
+        
+        if (!data) {
+            window.location.href = 'index.html';
+        } else {
+            const profileInfo = document.getElementById('profileInfo');
+            profileInfo.innerHTML = `
+                <div class="info-item"><label>Name:</label><span>${data.firstName} ${data.lastName}</span></div>
+                <div class="info-item"><label>Username:</label><span>${data.username}</span></div>
+                <div class="info-item"><label>Email:</label><span>${data.email}</span></div>
+                <div class="info-item"><label>Gender:</label><span>${data.gender}</span></div>
+            `;
+        }
+        
+        function logout() {
+            localStorage.removeItem('userData');
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
